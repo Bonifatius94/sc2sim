@@ -1,4 +1,4 @@
-# Python TDD Example
+# SC2Sim - A StarCraft II Simulation Environment
 
 ## About
 This project is a StartCraftII simulation environment for move to beacon.
