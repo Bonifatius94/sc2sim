@@ -18,4 +18,4 @@ RUN python -m pip install -r /requirements.txt --user
 
 ADD ./src /app/src
 WORKDIR /app/src
-ENTRYPOINT ["python", "-m", "sc2-sim"]
+ENTRYPOINT ["python", "-m", "sc2sim"]
