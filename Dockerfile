@@ -5,7 +5,8 @@ RUN python -m pip install pip --upgrade
 RUN python -m pip install pytest pylint
 RUN python -m pip install -r /requirements.txt
 
-ADD ./src /app/src
+ADD ./sc2sim /app/src/sc2sim
+ADD ./tests /app/src/tests
 WORKDIR /app/src
 RUN python -m pytest tests
 RUN python -m pylint sc2sim
@@ -20,6 +21,6 @@ ADD ./requirements.txt /requirements.txt
 RUN python -m pip install pip --upgrade --user
 RUN python -m pip install -r /requirements.txt --user
 
-ADD ./src /app/src
+ADD ./sc2sim /app/src/sc2sim
 WORKDIR /app/src
 ENTRYPOINT ["python", "-m", "sc2sim"]
