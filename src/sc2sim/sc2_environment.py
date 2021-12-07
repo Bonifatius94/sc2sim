@@ -75,13 +75,14 @@ class SC2Env:
         return self.norm_beacon_pos
 
     def step(self, action: SC2Action) -> Tuple[SC2State, float]:
-        """Apply a single step to the StarCraft II simulation environment"""
+        """Apply a single step to the StarCraft II simulation environment
+        and return the next state and reward observed"""
         x_diff, y_diff = SC2Env._get_move_diffs(action)
         self._apply_move_diffs(x_diff, y_diff)
         return self.state, self._get_reward()
 
     def reset(self) -> SC2State:
-        """Reset the StarCraft II simulation environment"""
+        """Reset the StarCraft II simulation environment and return the new state"""
         self._spawn_beacon_randomly()
         return self.state
 
