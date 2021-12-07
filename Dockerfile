@@ -10,7 +10,11 @@ WORKDIR /app/src
 RUN python -m pytest tests
 RUN python -m pylint sc2sim
 
-FROM python:3.8 as runtime
+FROM python:3.8-slim-buster as runtime
+
+RUN useradd worker -m
+USER worker
+ENV PATH=$PATH:/home/worker/.local/bin
 
 ADD ./requirements.txt /requirements.txt
 RUN python -m pip install pip --upgrade --user
