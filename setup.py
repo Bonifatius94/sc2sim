@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 def load_pip_dependency_list():
     with open('./requirements.txt', 'r', encoding='utf-8') as file:
@@ -17,8 +17,7 @@ setup(
     long_description=load_readme_desc(),
     long_description_content_type="text/markdown",
     url="https://github.com/Bonifatius94/sc2sim",
-    package_dir={"": "sc2sim"},
-    packages=find_packages(where="sc2sim"),
+    packages=["sc2sim"],
     python_requires=">=3",
     install_requires=load_pip_dependency_list()
 )
