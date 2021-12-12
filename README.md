@@ -8,7 +8,7 @@ It is supposed to be used as a mock-up for enhancing RL training time.
 You can set up this package by deploying it as a pip sdist.
 
 ```sh
-https://github.com/Bonifatius94/sc2sim
+git https://github.com/Bonifatius94/sc2sim
 cd sc2sim
 pip install -e .
 ```
