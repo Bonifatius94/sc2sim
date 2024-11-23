@@ -27,20 +27,6 @@ class SC2State:
     world_width: int=128
     world_height: int=128
 
-    def __str__(self) -> str:
-        out = ''
-        for row in range(0, self.world_height + 1):
-            for col in range(0, self.world_width + 1):
-                if (row, col) == self.marine_pos:
-                    out += 'm'
-                elif row - self.beacon_pos[0] in [-1, 0, 1] and \
-                        col - self.beacon_pos[1] in [-1, 0, 1]:
-                    out += 'b'
-                else:
-                    out += '.'
-            out += '\n'
-        return out
-
 @dataclass
 class SC2Experience:
     """Representing a StarCraft II experience related to a single game step"""
