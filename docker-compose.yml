@@ -1,0 +1,9 @@
+version: "2.3"
+services:
+  sc2sim_training:
+    image: sc2-sim
+    build:
+      context: .
+    environment:
+      PYTHONUNBUFFERED: 1
+      HEADLESS: true
