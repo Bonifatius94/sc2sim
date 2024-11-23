@@ -1,20 +1,33 @@
 # SC2Sim - A StarCraft II Simulation Environment
 
 ## About
-This project is a StartCraftII simulation environment for move to beacon.
-It is supposed to be used as a mock-up for enhancing RL training time.
+This project is a StartCraft II simulation environment to play the *Move to Beacon*
+sub game. As running a full StartCraft II game instance introduces a lot of simulation
+overhead, this project aims at reducing the overhead entirely by replacing the game
+with a much simpler but similar environment specifically designed for RL trainings.
 
-## End User Setup
-You can set up this package by deploying it as a pip sdist.
+## Quickstart
+Downlaod the source code.
 
 ```sh
 git clone https://github.com/Bonifatius94/sc2sim
 cd sc2sim
-pip install -e .
 ```
 
+Launch the RL training with the default QLAgent.
+
+```sh
+python -m sc2sim
+```
+
+The simulation should look like following example where
+the marine (agent) has to move towards the beacon to collect it.
+
+![](./docs/sc2sim_visual.gif)
+
 ## Usage
-See following example to outline the suggested usage:
+Following example outlines the suggested usage of the package.
+Feel free to replace the QLAgent with your agent / training algorithm.
 
 ```py
 from sc2sim.sc2_environment import SC2Env
@@ -31,18 +44,14 @@ def main():
 *Note: The simulation environment needs to be reset on initial creation.
 Otherwise the marine spawns already at the beacon.*
 
-## Development Build and CI/CD
-All build + test scripting is abstracted by a Dockerfile.
-For creating the Docker image run following command:
+## Containerized Trainings
+All build + test scripting is abstracted by a Dockerfile running
+a training session in the entrypoint of the container.
+The containerized training session is configured and launched
+using Docker-Compose.
 
 ```sh
-docker build . -t "sc2-sim"
-```
-
-Now, spin up the dockerized Python app you've just built:
-
-```sh
-docker run "sc2-sim"
+docker-compose up
 ```
 
 ## License
